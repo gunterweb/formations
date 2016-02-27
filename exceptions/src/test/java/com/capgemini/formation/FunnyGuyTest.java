@@ -1,12 +1,17 @@
-package com.capgemini.formation.exceptions;
+package com.capgemini.formation;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.capgemini.formation.domain.people.Friend;
-import com.capgemini.formation.domain.people.FunnyGuy;
+import com.capgemini.formation.people.Friend;
+import com.capgemini.formation.people.FunnyGuy;
 
+/**
+ * Test case for FunnyGuy class
+ * @author fbontemp
+ *
+ */
 public class FunnyGuyTest {
     FunnyGuy joe;
     Friend james;

@@ -1,9 +1,9 @@
-package com.capgemini.formation.domain.people;
+package com.capgemini.formation.people;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.capgemini.formation.domain.party.PartyLeader;
+import com.capgemini.formation.party.PartyLeader;
 
 /**
  * FunnyGuy
@@ -37,7 +37,7 @@ public class FunnyGuy extends AbstractPerson implements PartyLeader {
 
     @Override
     public void addFriend(Friend friend) {
-        if (friend.isCorrectFriend()) {
+        if (friend.isReadyForMojitos()) {
             friends.add(friend);
         }
         // TODO erreur

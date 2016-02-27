@@ -1,4 +1,4 @@
-package com.capgemini.formation.domain.people;
+package com.capgemini.formation.people;
 
 import java.io.Serializable;
 

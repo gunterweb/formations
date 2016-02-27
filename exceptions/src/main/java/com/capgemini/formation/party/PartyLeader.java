@@ -1,9 +1,8 @@
-package com.capgemini.formation.domain.party;
+package com.capgemini.formation.party;
 
 import java.util.List;
 
-import com.capgemini.formation.domain.people.Friend;
-import com.capgemini.formation.exceptions.FriendshipException;
+import com.capgemini.formation.people.Friend;
 
 /**
  * Party Leader interface
@@ -11,11 +10,7 @@ import com.capgemini.formation.exceptions.FriendshipException;
  * @author fbontemp
  *
  */
-public interface PartyLeader {
-    /**
-     * @return list of Friends
-     */
-    public List<Friend> getFriends();
+public interface PartyLeader extends Friendship {
 
     /**
      * Define the list of Friends
@@ -30,8 +25,6 @@ public interface PartyLeader {
      * 
      * @param friend
      *            friend
-     * @throws FriendshipException
-     *             FriendshipException
      */
     public void addFriend(Friend friend);
 }

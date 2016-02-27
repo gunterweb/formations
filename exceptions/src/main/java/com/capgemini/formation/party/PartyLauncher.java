@@ -1,7 +1,7 @@
-package com.capgemini.formation.domain.party;
+package com.capgemini.formation.party;
 
-import com.capgemini.formation.domain.people.Friend;
-import com.capgemini.formation.domain.people.FunnyGuy;
+import com.capgemini.formation.people.Friend;
+import com.capgemini.formation.people.FunnyGuy;
 
 /**
  * Main class to create party
@@ -14,7 +14,8 @@ public class PartyLauncher {
     /**
      * Logger
      */
-    //private static final Logger LOGGER = Logger.getLogger(PartyLauncher.class);
+    // private static final Logger LOGGER =
+    // Logger.getLogger(PartyLauncher.class);
 
     private PartyLauncher() {
         super();
@@ -27,7 +28,6 @@ public class PartyLauncher {
      *            arguments
      */
     public static void main(String[] args) {
-        Party party = new Party();
 
         FunnyGuy joe = new FunnyGuy();
         joe.setName("Jo");
@@ -43,7 +43,8 @@ public class PartyLauncher {
 
         joe.addFriend(james);
         joe.addFriend(alberto);
-        party.createParty(joe);
+        Party party = new Party(joe);
+        party.createParty();
 
     }
 
