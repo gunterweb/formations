@@ -20,4 +20,12 @@ public class PartyException extends FunctionalException {
         super(functionalReason);
     }
 
+    /**
+     * @param functionalReason
+     * @param e Exception
+     */
+    public PartyException(FunctionalReason functionalReason, Exception e) {
+        super(functionalReason, e);        
+    }
+
 }

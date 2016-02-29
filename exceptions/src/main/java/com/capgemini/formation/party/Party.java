@@ -1,5 +1,6 @@
 package com.capgemini.formation.party;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 import com.capgemini.formation.people.Friend;
@@ -11,15 +12,15 @@ import com.capgemini.formation.people.Friend;
  *
  */
 public class Party implements Friendship {
+
     /**
      * 
      */
     private static final long serialVersionUID = 1544715696612984574L;
-    /**
-     * The path where to put the party details
-     */
-    // private static final Path partyPath = Paths.get("D://Temp//party.log");
 
+    /**
+     * the Party Leader
+     */
     private PartyLeader leader;
 
     /**
@@ -28,15 +29,15 @@ public class Party implements Friendship {
      * @param leader
      *            leader
      */
-    public Party(PartyLeader leader) {
+    protected Party(PartyLeader leader) {
         super();
         setLeader(leader);
     }
 
     /**
-     * Create the party
+     * write the party invitation
      */
-    public void createParty() {
+    public void writeParty() {
         if (leader.getFriends() != null && !leader.getFriends().isEmpty()) {
             for (Friend friend : leader.getFriends()) {
                 writePartyDetails(friend);
@@ -53,8 +54,9 @@ public class Party implements Friendship {
      *            friend
      */
     private void writePartyDetails(Friend friend) {
-        System.out.println("Invited");
-        System.out.println(friend.toString());
+        System.out.println(MessageFormat.format(PartyFactory.messageTemplate,
+                friend.getName() == null ? PartyFactory.unknownProperty : friend.getName(),
+                friend.getAge() == null ? PartyFactory.unknownProperty : friend.getAge()));
     }
 
     public PartyLeader getLeader() {

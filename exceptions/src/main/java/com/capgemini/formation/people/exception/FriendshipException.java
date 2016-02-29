@@ -20,4 +20,11 @@ public class FriendshipException extends FunctionalException {
         super(functionalReason);
     }
 
+    /**
+     * @param functionalReason
+     * @param e Exception
+     */
+    public FriendshipException(FunctionalReason functionalReason, Exception e) {
+        super(functionalReason, e);        
+    }
 }

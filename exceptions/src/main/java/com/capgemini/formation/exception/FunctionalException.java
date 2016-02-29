@@ -33,8 +33,10 @@ public class FunctionalException extends Exception {
 
     /**
      * @param functionalReason
+     * @param e
+     *            Exception
      */
-    public FunctionalException(Exception e, FunctionalReason functionalReason) {
+    public FunctionalException(FunctionalReason functionalReason, Exception e) {
         super(e);
         this.functionalReason = functionalReason;
     }
@@ -74,17 +76,19 @@ public class FunctionalException extends Exception {
     }
 
     /**
+     * Default Functional Exception
+     * 
      * @author fbontemp
      *
      */
-    class DefaultFunctionalException extends FunctionalException {
+    private static class DefaultFunctionalException extends FunctionalException {
         private static final String FUNCTIONAL_ERROR = "Functional error";
         /**
          * 
          */
         private static final long serialVersionUID = 5966590558573317218L;
 
-        public DefaultFunctionalException() {
+        private DefaultFunctionalException() {
             super(FunctionalReason.DEFAULT_ERROR);
         }
 

@@ -5,11 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.capgemini.formation.party.Party;
+import com.capgemini.formation.party.PartyFactory;
 import com.capgemini.formation.people.Friend;
 import com.capgemini.formation.people.FunnyGuy;
 
 /**
  * Test case for Party class
+ * 
  * @author fbontemp
  *
  */
@@ -31,16 +33,16 @@ public class PartyTest {
 
     @Test
     public void testNoFriends() {
-        Party party = new Party(joe);
-        party.createParty();
+        Party party = PartyFactory.getInstance().createParty(joe);
+        party.writeParty();
         Assert.assertEquals(party.getFriends().size(), 0);
     }
-    
+
     @Test
     public void testWithFriends() {
-        Party party = new Party(joe);
+        Party party = PartyFactory.getInstance().createParty(joe);
         joe.addFriend(james);
-        party.createParty();
+        party.writeParty();
         Assert.assertEquals(party.getFriends().size(), 1);
     }
 

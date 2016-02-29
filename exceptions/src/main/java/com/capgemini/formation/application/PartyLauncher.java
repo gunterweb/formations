@@ -1,10 +1,14 @@
-package com.capgemini.formation.party;
+package com.capgemini.formation.application;
 
+import org.apache.log4j.Logger;
+
+import com.capgemini.formation.party.Party;
+import com.capgemini.formation.party.PartyFactory;
 import com.capgemini.formation.people.Friend;
 import com.capgemini.formation.people.FunnyGuy;
 
 /**
- * Main class to create party
+ * Main class to create a party
  * 
  * @author fbontemp
  *
@@ -14,8 +18,7 @@ public class PartyLauncher {
     /**
      * Logger
      */
-    // private static final Logger LOGGER =
-    // Logger.getLogger(PartyLauncher.class);
+    private static final Logger LOGGER = Logger.getLogger(PartyLauncher.class);
 
     private PartyLauncher() {
         super();
@@ -28,7 +31,7 @@ public class PartyLauncher {
      *            arguments
      */
     public static void main(String[] args) {
-
+        LOGGER.debug("Entering method");
         FunnyGuy joe = new FunnyGuy();
         joe.setName("Jo");
         joe.setAge(20);
@@ -43,9 +46,9 @@ public class PartyLauncher {
 
         joe.addFriend(james);
         joe.addFriend(alberto);
-        Party party = new Party(joe);
-        party.createParty();
-
+        Party party = PartyFactory.getInstance().createParty(joe);
+        party.writeParty();
+        LOGGER.debug("Exiting method");
     }
 
 }
