@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.capgemini.formation</groupId>
+	<artifactId>parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Formations</name>
+	<description>Formations</description>
+	<inceptionYear>2016</inceptionYear>
+	<developers>
+		<developer>
+			<id>fbontemp</id>
+			<name>Fabien Bontemps</name>
+			<email>fab.bontemps@gmail.com</email>
+			<organization>none</organization>
+			<url>http://www.google.com</url>
+			<roles>
+				<role>It Architect</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git@github.com/gunterweb/formations.git</connection>
+		<developerConnection>scm:git:git@github.com/gunterweb/formations.git</developerConnection>
+		<url>https://github.com/gunterweb/formations.git</url>
+		<tag>master</tag>
+	</scm>
+	<distributionManagement>
+		<repository>
+			<id>localNexus</id>
+			<name>Local - releases</name>
+			<url>http://localhost:8083/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>localNexus</id>
+			<name>Local - releases</name>
+			<url>http://localhost:8083/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<site>
+			<id>formation_sonar_site</id>
+			<name>Formation Site Server</name>
+			<url>ftp://xxxx</url>
+		</site>
+	</distributionManagement>
+	<modules>
+		<module>exceptions</module>
+	</modules>
+
+	<properties>
+		<junit.version>4.12</junit.version>
+		<log4j.version>1.2.17</log4j.version>
+		<!-- encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- compilation pour le projet -->
+		<target.java.version>1.8</target.java.version>
+		<source.java.version>1.8</source.java.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${source.java.version}</source>
+					<target>${target.java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
