@@ -37,6 +37,7 @@
 		<menu name="Reporting">
 			<item name="Mailing Lists" href="mail-lists.html" />
 			<item name="Issue Tracking" href="issue-tracking.html" />
+			<item name="Reporting" href="project-reports.html" />
 		</menu>
 	</body>
 	<skin>
