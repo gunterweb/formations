@@ -20,12 +20,12 @@ public class Friend extends AbstractPerson {
 
     /**
      * is this friend ok for mojitos ? <br>
-     * means age >= 18
+     * means age greater or equald to 18
      * 
      * @return boolean
      */
     public boolean isReadyForMojitos() {
-        return getAge() != null && getAge() >= CORRECT_AGE;
+        return getAge() != null && getAge().compareTo(CORRECT_AGE) >= 1;
     }
 
 }

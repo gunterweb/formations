@@ -25,6 +25,7 @@ public class FunctionalException extends Exception {
 
     /**
      * @param functionalReason
+     *            the reason
      */
     public FunctionalException(FunctionalReason functionalReason) {
         super();
@@ -33,6 +34,7 @@ public class FunctionalException extends Exception {
 
     /**
      * @param functionalReason
+     *            the reason
      * @param e
      *            Exception
      */

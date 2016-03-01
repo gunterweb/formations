@@ -22,9 +22,11 @@ public class FriendshipException extends FunctionalException {
 
     /**
      * @param functionalReason
-     * @param e Exception
+     *            the reason
+     * @param e
+     *            Exception
      */
     public FriendshipException(FunctionalReason functionalReason, Exception e) {
-        super(functionalReason, e);        
+        super(functionalReason, e);
     }
 }

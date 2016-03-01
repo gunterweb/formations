@@ -50,15 +50,58 @@
 	</modules>
 
 	<properties>
+
+		<!-- plugins version -->
+		<maven-project-info-reports-plugin-version>2.7</maven-project-info-reports-plugin-version>
+		<maven-checkstyle-plugin-version>2.13</maven-checkstyle-plugin-version>
+		<maven-jxr-plugin-version>2.3</maven-jxr-plugin-version>
+		<maven-report-version>0.1</maven-report-version>
+		<gmaven-plugin-version>1.0</gmaven-plugin-version>
+		<wagon-version>1.0</wagon-version>
+		<maven-javadoc-plugin.quiet>true</maven-javadoc-plugin.quiet>
+		<version.maven-assembly-plugin>2.4</version.maven-assembly-plugin>
+		<version.maven-antrun-plugin>1.7</version.maven-antrun-plugin>
+		<version.maven-dependency-plugin>2.8</version.maven-dependency-plugin>
+		<version.versions-maven-plugin>2.1</version.versions-maven-plugin>
+		<version.jacoco-maven-plugin>0.7.4.201502262128</version.jacoco-maven-plugin>
+		<version.sonar-maven-plugin>2.5</version.sonar-maven-plugin>
+		<version.iterator-maven-plugin>0.3</version.iterator-maven-plugin>
+		<version.properties-maven-plugin>1.0-alpha-2</version.properties-maven-plugin>
+		<version.maven-eclipse-plugin>2.9</version.maven-eclipse-plugin>
+		<maven-eclipse-plugin.downloadSources>true</maven-eclipse-plugin.downloadSources>
+		<maven-eclipse-plugin.downloadJavadocs>true</maven-eclipse-plugin.downloadJavadocs>
+		<version.lifecycle-mapping-plugin>1.0.0</version.lifecycle-mapping-plugin>
+		<version.maven-clean-plugin>2.5</version.maven-clean-plugin>
+		<version.maven-resources-plugin>2.6</version.maven-resources-plugin>
+		<version.maven-compiler-plugin>3.1</version.maven-compiler-plugin>
+		<version.maven-surefire-plugin>2.18.1</version.maven-surefire-plugin>
+		<version.maven-jar-plugin>2.4</version.maven-jar-plugin>
+		<version.maven-war-plugin>2.4</version.maven-war-plugin>
+		<version.maven-ejb-plugin>2.4</version.maven-ejb-plugin>
+		<version.maven-ear-plugin>2.9.1</version.maven-ear-plugin>
+		<version.maven-source-plugin>2.2.1</version.maven-source-plugin>
+		<version.maven-javadoc-plugin>2.9.1</version.maven-javadoc-plugin>
+		<version.maven-install-plugin>2.5.1</version.maven-install-plugin>
+		<version.maven-failsafe-plugin>2.18.1</version.maven-failsafe-plugin>
+		<version.maven-deploy-plugin>2.8.1</version.maven-deploy-plugin>
+		<version.maven-release-plugin>2.5</version.maven-release-plugin>
+		<version.maven-site-plugin>3.4</version.maven-site-plugin>
+
+		<!-- dependencies -->
 		<junit.version>4.12</junit.version>
 		<log4j.version>1.2.17</log4j.version>
+
 		<!-- encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<!-- compilation pour le projet -->
+		<!-- compilation targets -->
 		<target.java.version>1.8</target.java.version>
 		<source.java.version>1.8</source.java.version>
+
+		<!-- sonar -->
+		<sonar.host.url>http://local/</sonar.host.url>
+		<branch>master</branch>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -77,7 +120,219 @@
 	</dependencyManagement>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>${maven-project-info-reports-plugin-version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jxr-plugin</artifactId>
+					<version>${maven-jxr-plugin-version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.sonar-plugins</groupId>
+					<artifactId>maven-report</artifactId>
+					<version>${maven-report-version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.groovy.maven</groupId>
+					<artifactId>gmaven-plugin</artifactId>
+					<version>${gmaven-plugin-version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${version.maven-clean-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${version.maven-resources-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.maven-compiler-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${version.maven-surefire-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${version.maven-jar-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${version.maven-war-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ejb-plugin</artifactId>
+					<version>${version.maven-ejb-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ear-plugin</artifactId>
+					<version>${version.maven-ear-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${version.maven-source-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${version.maven-javadoc-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>${version.maven-install-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${version.maven-failsafe-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>${version.maven-deploy-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${version.maven-site-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${version.maven-release-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${version.maven-assembly-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${version.maven-antrun-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${version.maven-dependency-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${version.versions-maven-plugin}</version>
+				</plugin>
+
+				<!-- Jacoco & Sonar plugins (Coverage) -->
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${version.jacoco-maven-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>${version.sonar-maven-plugin}</version>
+				</plugin>
+
+				<!-- Utility plugins -->
+				<plugin>
+					<groupId>com.soebes.maven.plugins</groupId>
+					<artifactId>iterator-maven-plugin</artifactId>
+					<version>${version.iterator-maven-plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>properties-maven-plugin</artifactId>
+					<version>${version.properties-maven-plugin}</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
 		<plugins>
+			<!-- Eclipse plugins -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>${version.maven-eclipse-plugin}</version>
+				<configuration>
+					<downloadSources>${maven-eclipse-plugin.downloadSources}</downloadSources>
+					<downloadJavadocs>${maven-eclipse-plugin.downloadJavadocs}</downloadJavadocs>
+				</configuration>
+			</plugin>
+
+			<!-- Surefire plugin (TU) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+
+
+					<parallel>classesAndMethods</parallel>
+					<threadCount>1</threadCount>
+				</configuration>
+			</plugin>
+
+			<!-- Failsafe plugin (TI) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<!-- Ensures that both integration-test and verify goals of the -->
+					<!-- Failsafe Maven plugin are executed. -->
+					<execution>
+						<id>integration-tests</id>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includes>
+						<include>**/*IT.java</include>
+					</includes>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -86,6 +341,64 @@
 					<target>${target.java.version}</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>${wagon-version}</version>
+			</extension>
+		</extensions>
 	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<configuration>
+					<dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+					<dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<detectLinks>true</detectLinks>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.sonar-plugins</groupId>
+				<artifactId>maven-report</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

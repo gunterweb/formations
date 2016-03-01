@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 import java.util.List;
 
 import com.capgemini.formation.people.Friend;
+import com.capgemini.formation.people.Friendship;
 
 /**
  * Yeah : party !
