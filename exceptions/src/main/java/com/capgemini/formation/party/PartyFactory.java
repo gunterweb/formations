@@ -28,17 +28,17 @@ public class PartyFactory implements Serializable {
     /**
      * The path where to put the party details
      */
-    protected static Path partyPath;
+    static Path partyPath;
 
     /**
      * The message format
      */
-    protected static String messageTemplate;
+    static String messageTemplate;
 
     /**
      * The unknown property
      */
-    protected static String unknownProperty;
+    static String unknownProperty;
 
     /**
      * Singleton instance
