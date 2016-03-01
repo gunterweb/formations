@@ -1,0 +1,19 @@
+/* You can override this file with your own styles */
+body{
+	color: #414141;
+}
+#banner{
+	padding-bottom: 10px;
+}
+
+#bannerLeft{
+	height: 80px;
+    width: 180px;
+}
+#bannerRight{
+	color : #17549c;	
+}
+
+h2{
+	color : #17549c;	
+}

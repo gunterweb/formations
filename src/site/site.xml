@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/DECORATION/1.3.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd"
+	name="formations">
+	<bannerLeft>
+		<src>images/gunterweb.png</src>
+	</bannerLeft>
+	<bannerRight>
+		<name>Formations</name>
+	</bannerRight>
+	<body>
+		<head>
+			<link rel="stylesheet" href="/css/site.css" type="text/css" />
+		</head>
+		<menu name="General informations">
+			<item name="Introduction" href="index.html" />
+			<item name="Project team" href="team-list.html" />
+			<item name="Summary" href="project-summary.html" />
+		</menu>
+		<menu name="Projet">
+			<item name="Project dependencies" href="dependency-info.html" />
+			<item name="Dependencies" href="dependencies.html" />
+			<item name="Plugins" href="plugins.html" />
+			<item name="Modules" href="modules.html" />
+		</menu>
+		<menu name="Technical overview">
+			<item name="Source configuration management" href="source-repository.html" />
+			<item name="Continuous integration" href="integration.html" />
+			<item name="Management..." collapse="false">
+				<item name="Plugins" href="plugin-management.html" />
+				<item name="Distribution Management" href="distribution-management.html" />
+				<item name="Dependency Management" href="dependency-management.html" />
+			</item>
+			<item name="Dependency Convergence" href="dependency-convergence.html" />
+		</menu>
+		<menu name="Reporting">
+			<item name="Mailing Lists" href="mail-lists.html" />
+			<item name="Issue Tracking" href="issue-tracking.html" />
+		</menu>
+	</body>
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.3.1</version>
+	</skin>
+</project>
