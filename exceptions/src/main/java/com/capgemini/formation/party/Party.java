@@ -43,7 +43,7 @@ public class Party implements Friendship {
                 writePartyDetails(friend);
             }
         } else {
-            // TODO Erreur
+            // TODO erreur
         }
     }
 
@@ -56,7 +56,8 @@ public class Party implements Friendship {
     private void writePartyDetails(Friend friend) {
         System.out.println(MessageFormat.format(PartyFactory.messageTemplate,
                 friend.getName() == null ? PartyFactory.unknownProperty : friend.getName(),
-                friend.getAge() == null ? PartyFactory.unknownProperty : friend.getAge()));
+                friend.getAge() == null ? PartyFactory.unknownProperty : friend.getAge(),
+                friend.getAddress() == null ? PartyFactory.unknownProperty : friend.getAddress()));
     }
 
     public PartyLeader getLeader() {

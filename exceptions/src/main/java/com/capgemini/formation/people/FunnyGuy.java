@@ -39,8 +39,9 @@ public class FunnyGuy extends AbstractPerson implements PartyLeader {
     public void addFriend(Friend friend) {
         if (friend.isReadyForMojitos()) {
             friends.add(friend);
+        } else {
+            // TODO erreur
         }
-        // TODO erreur
     }
 
 }

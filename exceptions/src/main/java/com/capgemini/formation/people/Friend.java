@@ -8,7 +8,7 @@ package com.capgemini.formation.people;
  */
 public class Friend extends AbstractPerson {
 
-    private static final int CORRECT_AGE = 18;
+    public static final int CORRECT_AGE = 18;
     /**
      * 
      */
