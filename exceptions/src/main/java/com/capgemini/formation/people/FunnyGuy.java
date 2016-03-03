@@ -3,7 +3,9 @@ package com.capgemini.formation.people;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.capgemini.formation.exception.FunctionalReason;
 import com.capgemini.formation.party.PartyLeader;
+import com.capgemini.formation.people.exception.FriendshipException;
 
 /**
  * FunnyGuy
@@ -36,11 +38,11 @@ public class FunnyGuy extends AbstractPerson implements PartyLeader {
     }
 
     @Override
-    public void addFriend(Friend friend) {
+    public void addFriend(Friend friend) throws FriendshipException {
         if (friend.isReadyForMojitos()) {
             friends.add(friend);
         } else {
-            // TODO erreur
+            throw new FriendshipException(FunctionalReason.FRIEND_ERROR);
         }
     }
 

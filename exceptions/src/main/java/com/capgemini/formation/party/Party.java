@@ -1,8 +1,14 @@
 package com.capgemini.formation.party;
 
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
 import java.text.MessageFormat;
 import java.util.List;
 
+import com.capgemini.formation.exception.FunctionalReason;
+import com.capgemini.formation.exception.TechnicalException;
+import com.capgemini.formation.party.exception.PartyException;
 import com.capgemini.formation.people.Friend;
 import com.capgemini.formation.people.Friendship;
 
@@ -38,13 +44,13 @@ public class Party implements Friendship {
     /**
      * write the party invitation
      */
-    public void writeParty() {
+    public void writeParty() throws PartyException, TechnicalException {
         if (leader.getFriends() != null && !leader.getFriends().isEmpty()) {
             for (Friend friend : leader.getFriends()) {
                 writePartyDetails(friend);
             }
         } else {
-            // TODO erreur
+            throw new PartyException(FunctionalReason.NO_GUEST);
         }
     }
 
@@ -54,11 +60,15 @@ public class Party implements Friendship {
      * @param friend
      *            friend
      */
-    private void writePartyDetails(Friend friend) {
-        System.out.println(MessageFormat.format(PartyFactory.messageTemplate,
-                friend.getName() == null ? PartyFactory.unknownProperty : friend.getName(),
-                friend.getAge() == null ? PartyFactory.unknownProperty : friend.getAge(),
-                friend.getAddress() == null ? PartyFactory.unknownProperty : friend.getAddress()));
+    private void writePartyDetails(Friend friend) throws TechnicalException {
+        try (Writer out = Files.newBufferedWriter(PartyFactory.partyPath)) {
+            out.write(MessageFormat.format(PartyFactory.messageTemplate,
+                    friend.getName() == null ? PartyFactory.unknownProperty : friend.getName(),
+                    friend.getAge() == null ? PartyFactory.unknownProperty : friend.getAge(),
+                    friend.getAddress() == null ? PartyFactory.unknownProperty : friend.getAddress()));
+        } catch (IOException e) {
+            throw new TechnicalException(e);
+        }
     }
 
     public PartyLeader getLeader() {

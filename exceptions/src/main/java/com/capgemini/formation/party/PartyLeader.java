@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.capgemini.formation.people.Friend;
 import com.capgemini.formation.people.Friendship;
+import com.capgemini.formation.people.exception.FriendshipException;
 
 /**
  * Party Leader interface
@@ -27,5 +28,5 @@ public interface PartyLeader extends Friendship {
      * @param friend
      *            friend
      */
-    public void addFriend(Friend friend);
+    public void addFriend(Friend friend) throws FriendshipException;
 }

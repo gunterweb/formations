@@ -4,8 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.capgemini.formation.exception.FunctionalException;
+import com.capgemini.formation.exception.TechnicalException;
 import com.capgemini.formation.party.Party;
 import com.capgemini.formation.party.PartyFactory;
+import com.capgemini.formation.party.exception.PartyException;
 import com.capgemini.formation.people.Friend;
 import com.capgemini.formation.people.FunnyGuy;
 
@@ -31,15 +34,15 @@ public class PartyTest {
 
     }
 
-    @Test
-    public void testNoFriends() {
+    @Test(expected = PartyException.class)
+    public void testNoFriends() throws PartyException, TechnicalException {
         Party party = PartyFactory.getInstance().createParty(joe);
         party.writeParty();
         Assert.assertEquals(party.getFriends().size(), 0);
     }
 
     @Test
-    public void testWithFriends() {
+    public void testWithFriends() throws FunctionalException, TechnicalException {
         Party party = PartyFactory.getInstance().createParty(joe);
         joe.addFriend(james);
         party.writeParty();

@@ -53,7 +53,7 @@ public class PartyFactory implements Serializable {
      * 
      * @return PartyFactory instance
      */
-    public static PartyFactory getInstance() {
+    public static PartyFactory getInstance() throws TechnicalException {
         if (instance == null) {
             instance = new PartyFactory();
             PartyFactory.init();
@@ -64,15 +64,11 @@ public class PartyFactory implements Serializable {
     /**
      * Party initialization
      */
-    private static void init() {
-        try {
-            partyPath = Paths.get(PropertyHelper.getProperty(OUTPUT_PATH));
-            messageTemplate = PropertyHelper.getMessageProperty(INVITED_MESSAGE_KEY);
-            unknownProperty = PropertyHelper.getMessageProperty(UNKNOWN_MESSAGE_KEY);
-        } catch (TechnicalException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    private static void init() throws TechnicalException {
+        partyPath = Paths.get(PropertyHelper.getProperty(OUTPUT_PATH));
+        messageTemplate = PropertyHelper.getMessageProperty(INVITED_MESSAGE_KEY);
+        unknownProperty = PropertyHelper.getMessageProperty(UNKNOWN_MESSAGE_KEY);
+
     }
 
     /**

@@ -7,7 +7,10 @@ package com.capgemini.formation.exception;
  */
 public enum FunctionalReason {
 
-    DEFAULT_ERROR("default.error");
+    DEFAULT_ERROR("default.error"),
+    FRIEND_ERROR("friend.error"),
+    NO_GUEST("noguest.error"),
+    ;
 
     private final String key;
 

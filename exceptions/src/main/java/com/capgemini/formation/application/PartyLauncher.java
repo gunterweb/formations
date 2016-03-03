@@ -2,6 +2,8 @@ package com.capgemini.formation.application;
 
 import org.apache.log4j.Logger;
 
+import com.capgemini.formation.exception.FunctionalException;
+import com.capgemini.formation.exception.TechnicalException;
 import com.capgemini.formation.party.Party;
 import com.capgemini.formation.party.PartyFactory;
 import com.capgemini.formation.people.Friend;
@@ -44,10 +46,14 @@ public class PartyLauncher {
         alberto.setName("Alberto");
         alberto.setAge(10);
 
-        joe.addFriend(james);
-        joe.addFriend(alberto);
-        Party party = PartyFactory.getInstance().createParty(joe);
-        party.writeParty();
+        try {
+            joe.addFriend(james);
+            //joe.addFriend(alberto);
+            Party party = PartyFactory.getInstance().createParty(joe);
+            party.writeParty();
+        } catch (FunctionalException | TechnicalException e) {
+            LOGGER.error(e.getLocalizedMessage(), e);
+        }
         LOGGER.debug("Exiting method");
     }
 
