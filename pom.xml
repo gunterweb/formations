@@ -317,7 +317,7 @@
 						<include>**/*Test.java</include>
 					</includes>
 
-
+					<argLine>${surefireArgLine}</argLine>
 					<parallel>classesAndMethods</parallel>
 					<threadCount>1</threadCount>
 				</configuration>
@@ -413,14 +413,6 @@
 				</executions>
 			</plugin>
 
-			<!-- Plugin surefire (TU) -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<argLine>${surefireArgLine}</argLine>
-				</configuration>
-			</plugin>
 		</plugins>
 
 		<extensions>
