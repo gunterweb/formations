@@ -10,7 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.capgemini.formation.model.Customer;
-import com.capgemini.formation.model.dao.CustomerRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/spring/applicationContextTest-core.xml" })
@@ -44,12 +43,12 @@ public class CustomerRepositoryTest {
 
     @Test
     public void testDeleteOneCustomer() {
-        Customer customer = new Customer(Long.valueOf(CUSTOMER_SIZE + 1), "Customer " + CUSTOMER_SIZE + 1);
+        Customer customer = new Customer(Long.valueOf(CUSTOMER_SIZE + 1), "Customer " + (CUSTOMER_SIZE + 1));
         // when
         customerRepo.save(customer);
 
         // then
-        Assert.assertEquals(customerRepo.findAll().spliterator().estimateSize(), CUSTOMER_SIZE + 1);
+        Assert.assertEquals(customerRepo.findAll().spliterator().estimateSize(), (CUSTOMER_SIZE + 1));
         customerRepo.delete(customer);
         Assert.assertEquals(customerRepo.findAll().spliterator().estimateSize(), CUSTOMER_SIZE);
     }
