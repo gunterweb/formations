@@ -22,7 +22,7 @@ public class CustomerRepositoryTest {
     @Before
     public void setUp() {
         for (int i = 0; i < CUSTOMER_SIZE; i++) {
-            customerRepo.save(new Customer(Long.valueOf(i), "User " + i));
+            customerRepo.save(new Customer(Long.valueOf(i), "Customer " + i));
         }
     }
 
@@ -34,7 +34,7 @@ public class CustomerRepositoryTest {
 
         // then
         Assert.assertEquals(customer.getIdCustomer(), Long.valueOf(1));
-        Assert.assertEquals(customer.getName(), "User 1");
+        Assert.assertEquals(customer.getName(), "Customer 1");
     }
 
     @Test
@@ -44,7 +44,7 @@ public class CustomerRepositoryTest {
 
     @Test
     public void testDeleteOneCustomer() {
-        Customer customer = new Customer(Long.valueOf(CUSTOMER_SIZE + 1), "User " + CUSTOMER_SIZE + 1);
+        Customer customer = new Customer(Long.valueOf(CUSTOMER_SIZE + 1), "Customer " + CUSTOMER_SIZE + 1);
         // when
         customerRepo.save(customer);
 

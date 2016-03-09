@@ -19,10 +19,10 @@ import com.capgemini.formation.services.CustomerService;
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
-    private Mapper mapper;
+    private transient Mapper mapper;
 
     @Autowired
-    private CustomerRepository repository;
+    private transient CustomerRepository repository;
     /**
      * 
      */
