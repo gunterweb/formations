@@ -4,7 +4,12 @@
 		<Console name="Console" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</Console>
-		<File name="MyFile" fileName="D:\Formations\Temp\formation.log" immediateFlush="true"
+		<File name="Formation" fileName="D:\Formations\Temp\formation.log" immediateFlush="true"
+			append="true">
+			<PatternLayout
+				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</File>
+		<File name="Spring" fileName="D:\Formations\Temp\spring.log" immediateFlush="true"
 			append="true">
 			<PatternLayout
 				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
@@ -17,7 +22,10 @@
 		<Logger name="org.hibernate.SQL" level="debug" />
 		<Logger name="org.hibernate.type" level="trace" />
 		<Logger name="com.capgemini.formation" level="debug">
-            <AppenderRef ref="MyFile" />
+            <AppenderRef ref="Formation" />
+        </Logger>
+        <Logger name="org.springframework" level="debug">
+            <AppenderRef ref="Spring" />
         </Logger>
 	</Loggers>
 </Configuration>

@@ -2,8 +2,7 @@ package com.capgemini.formation.application;
 
 import org.apache.log4j.Logger;
 
-import com.capgemini.formation.exception.FunctionalException;
-import com.capgemini.formation.exception.TechnicalException;
+import com.capgemini.formation.exception.FormationException;
 import com.capgemini.formation.party.Party;
 import com.capgemini.formation.party.PartyFactory;
 import com.capgemini.formation.people.Friend;
@@ -27,12 +26,22 @@ public class PartyLauncher {
     }
 
     /**
-     * Main class
+     * Main method
      * 
      * @param args
      *            arguments
      */
     public static void main(String[] args) {
+        launch();
+    }
+
+    /**
+     * Main result
+     * 
+     * @return boolean
+     */
+    public static boolean launch() {
+        boolean result = true;
         LOGGER.debug("Entering method");
         FunnyGuy joe = new FunnyGuy();
         joe.setName("Jo");
@@ -48,13 +57,15 @@ public class PartyLauncher {
 
         try {
             joe.addFriend(james);
-            //joe.addFriend(alberto);
+            // joe.addFriend(alberto);
             Party party = PartyFactory.getInstance().createParty(joe);
             party.writeParty();
-        } catch (FunctionalException | TechnicalException e) {
+        } catch (FormationException e) {
             LOGGER.error(e.getLocalizedMessage(), e);
+            result = false;
         }
         LOGGER.debug("Exiting method");
+        return result;
     }
 
 }

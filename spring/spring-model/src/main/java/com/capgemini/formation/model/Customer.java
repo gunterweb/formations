@@ -28,7 +28,6 @@ public class Customer implements Serializable {
      * Customer Id
      */
     @NotNull
-    @Size(max = 5, min = 5)
     @Id
     @Column(name = "ID", nullable = false)
     private Long idCustomer;

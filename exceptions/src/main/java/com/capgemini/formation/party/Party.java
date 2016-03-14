@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.text.MessageFormat;
 import java.util.List;
 
+import com.capgemini.formation.exception.FormationException;
 import com.capgemini.formation.exception.FunctionalReason;
 import com.capgemini.formation.exception.TechnicalException;
 import com.capgemini.formation.party.exception.PartyException;
@@ -44,7 +45,7 @@ public class Party implements Friendship {
     /**
      * write the party invitation
      */
-    public void writeParty() throws PartyException, TechnicalException {
+    public void writeParty() throws FormationException {
         if (leader.getFriends() != null && !leader.getFriends().isEmpty()) {
             for (Friend friend : leader.getFriends()) {
                 writePartyDetails(friend);

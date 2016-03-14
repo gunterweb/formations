@@ -24,7 +24,7 @@
 	
 	<!-- Traitement des annotations -->
 	<context:component-scan base-package="com.capgemini.formation.model" />
-	<jpa:repositories base-package="com.capgemini.formation.model"></jpa:repositories>
+	<jpa:repositories base-package="com.capgemini.formation.dao"></jpa:repositories>
 		
 	<bean id="jpaVendorAdapter"
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">

@@ -4,8 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.capgemini.formation.exception.FunctionalException;
-import com.capgemini.formation.exception.TechnicalException;
+import com.capgemini.formation.exception.FormationException;
 import com.capgemini.formation.party.Party;
 import com.capgemini.formation.party.PartyFactory;
 import com.capgemini.formation.party.exception.PartyException;
@@ -35,14 +34,14 @@ public class PartyTest {
     }
 
     @Test(expected = PartyException.class)
-    public void testNoFriends() throws PartyException, TechnicalException {
+    public void testNoFriends() throws FormationException {
         Party party = PartyFactory.getInstance().createParty(joe);
         party.writeParty();
         Assert.assertEquals(party.getFriends().size(), 0);
     }
 
     @Test
-    public void testWithFriends() throws FunctionalException, TechnicalException {
+    public void testWithFriends() throws FormationException {
         Party party = PartyFactory.getInstance().createParty(joe);
         joe.addFriend(james);
         party.writeParty();

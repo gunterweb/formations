@@ -12,8 +12,12 @@ import org.apache.log4j.Logger;
  * @author fbontemp
  *
  */
-public class FunctionalException extends Exception {
+public class FunctionalException extends FormationException {
 
+    private static final String MESSAGE_NOT_DEFINED_FOR_REASON = "Message not defined for reason : ";
+    private static final String RESOURCE_BUNDLE_NOT_FOUND = "ResourceBundle not found";
+    private static final String REASON_NOT_SET_ON_ERROR = "Reason not set on error";
+    
     private static final String ERROR_BUNDLE = "errorMessages";
     /** Logger */
     private static final Logger LOG = Logger.getLogger(FunctionalException.class);
@@ -21,6 +25,7 @@ public class FunctionalException extends Exception {
      * 
      */
     private static final long serialVersionUID = -4120985416048966288L;
+    
     private final FunctionalReason functionalReason;
 
     /**
@@ -58,16 +63,16 @@ public class FunctionalException extends Exception {
                 try {
                     errorMessage = errorBundle.getString(functionalReason.getKey());
                 } catch (MissingResourceException e) {
-                    LOG.info("Message not defined for reason : " + functionalReason.getKey(), e);
+                    LOG.info(MESSAGE_NOT_DEFINED_FOR_REASON + functionalReason.getKey(), e);
                 }
                 if (errorMessage != null && !"".equals(errorMessage)) {
                     message = errorMessage;
                 }
             } else {
-                LOG.warn("Reason not set on error");
+                LOG.warn(REASON_NOT_SET_ON_ERROR);
             }
         } else {
-            LOG.warn("ResourceBundle not found");
+            LOG.warn(RESOURCE_BUNDLE_NOT_FOUND);
         }
         return message;
     }

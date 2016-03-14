@@ -1,0 +1,31 @@
+<p class="lead">
+ <img src="images/spring.jpg" class="springimg" alt="Spring & angular.js application">
+ Spring &amp; angular.js application
+</p>
+<div>
+ <table ng-table="customersTable" class="table table-striped">
+  <tr ng-repeat="customer in data">
+   <td data-title="'Customer Id'" sortable="'idCustomer'">{{customer.idCustomer}}</td>
+   <td data-title="'Customer Name'" sortable="'name'">{{customer.name}}</td>   
+  </tr>
+ </table>
+</div>
+<div class="jumbotron">
+ <div>
+  <form class="form-inline" name="customerForm" novalidate>
+   <div class="form-group">
+    <label>ID</label> <input type="number" class="form-control"
+     name="id" ng-model="formData.newCustomer.idCustomer" required/>
+   </div>
+   <div class="form-group">
+    <label>Name</label> <input type="text" name="name"
+     class="form-control" ng-model="formData.newCustomer.name" required/>
+   </div>
+   <div class="form-group">
+    <button type="submit" class="btn btn-primary" ng-disabled="customerForm.$invalid" ng-click="saveCustomer();">Create</button>
+   </div>
+  </form>
+ </div>
+</div>
+
+

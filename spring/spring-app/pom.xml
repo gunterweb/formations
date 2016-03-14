@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.capgemini.formation</groupId>
+		<artifactId>spring-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>spring-app</artifactId>
+	<name>spring app</name>
+	<build>
+		<sourceDirectory>app</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>pl.allegro</groupId>
+				<artifactId>grunt-maven-plugin</artifactId>
+				<version>1.5.0</version>
+				<configuration>
+					<!-- relative to src/main/webapp/, default: static -->
+					<jsSourceDirectory>.</jsSourceDirectory>
+
+					<!-- example options usage to get verbose output in logs -->
+					<gruntOptions>
+						<gruntOption>--verbose --force</gruntOption>
+					</gruntOptions>
+
+					<gruntBuildDirectory>target/webapp/</gruntBuildDirectory>
+					<npmOptions>
+						<npmOption>--unsafe-perm</npmOption>
+					</npmOptions>
+
+					<!-- example npm install env variable -->
+					<npmEnvironmentVar>
+						<PHANTOMJS_CDNURL>http://cnpmjs.org/downloads</PHANTOMJS_CDNURL>
+					</npmEnvironmentVar>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>create-resources</goal>
+							<goal>npm</goal>
+							<!-- or npm-offline if npm failure is not an option -->
+							<goal>grunt</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

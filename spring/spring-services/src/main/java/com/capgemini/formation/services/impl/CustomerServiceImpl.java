@@ -9,24 +9,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.capgemini.formation.dao.CustomerRepository;
 import com.capgemini.formation.dto.CustomerDto;
+import com.capgemini.formation.exception.CustomerNotFoundException;
+import com.capgemini.formation.exception.FunctionalReason;
 import com.capgemini.formation.helper.DozerHelper;
 import com.capgemini.formation.model.Customer;
-import com.capgemini.formation.model.dao.CustomerRepository;
 import com.capgemini.formation.services.CustomerService;
 
+/**
+ * Default CustomerService implementation
+ * 
+ * @author fbontemp
+ *
+ */
 @Service("CustomerService")
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private transient Mapper mapper;
 
+    /**
+     * The JPA Repository for the Customer
+     */
     @Autowired
     private transient CustomerRepository repository;
     /**
      * 
      */
     private static final long serialVersionUID = 3333647044881043947L;
+
     /** Logger */
     private static final Logger LOG = LoggerFactory.getLogger(CustomerServiceImpl.class);
 
@@ -43,9 +55,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDto getCustomer(Long idCustomer) {
+    public CustomerDto getCustomer(Long idCustomer) throws CustomerNotFoundException {
         LOG.debug("getting customer");
         Customer entity = repository.findOne(idCustomer);
+        if (entity == null) {
+            throw new CustomerNotFoundException(FunctionalReason.CUSTOMER_NOTFOUND_ERROR, idCustomer);
+        }
         return mapper.map((Customer) entity, CustomerDto.class);
     }
 

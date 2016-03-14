@@ -15,6 +15,7 @@
 		<module>spring-model</module>
 		<module>spring-services</module>
 		<module>spring-web</module>
+		<module>spring-app</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -66,9 +67,19 @@
 				<version>${org.springframework-version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${org.springframework-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${org.springframework-version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
-				<version>1.9.4.RELEASE</version>
+				<version>${spring-data.version}</version>
 			</dependency>
 			<!-- Hibernate -->
 			<dependency>
@@ -81,11 +92,23 @@
 				<artifactId>hibernate-entitymanager</artifactId>
 				<version>${hibernate-version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate-version}</version>
+			</dependency>
 			<!-- H2 DB -->
 			<dependency>
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
 				<version>${h2-version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- postgreSQL -->
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql-version}</version>
 			</dependency>
 			<!-- validation -->
 			<dependency>
@@ -103,13 +126,13 @@
 			<dependency>
 				<groupId>net.sf.dozer</groupId>
 				<artifactId>dozer</artifactId>
-				<version>5.5.1</version>
+				<version>${dozer-version}</version>
 			</dependency>
 			<!-- commons -->
 			<dependency>
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
-				<version>1.4</version>
+				<version>${commons-dbcp-version}</version>
 			</dependency>
 			<!-- for spring tests -->
 			<dependency>
@@ -121,25 +144,47 @@
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-api</artifactId>
-				<version>2.5</version>
+				<version>${sl4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-core</artifactId>
-				<version>2.5</version>
+				<version>${sl4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-slf4j-impl</artifactId>
-				<version>2.5</version>
+				<version>${sl4j.version}</version>
+			</dependency>
+			<!-- Jackson JSON Mapper -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson-version}</version>
+			</dependency>
+			<!-- Servlet API -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<scope>provided</scope>
+				<version>${servlet-api.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<properties>
 		<org.springframework-version>4.2.5.RELEASE</org.springframework-version>
-		<net.sf.ehcache-version>2.10.0</net.sf.ehcache-version>
-		<validation-version>1.0.0.GA</validation-version>
-		<h2-version>1.4.191</h2-version>
+		<spring-data.version>1.9.4.RELEASE</spring-data.version>
 		<hibernate-version>5.1.0.Final</hibernate-version>
+		<net.sf.ehcache-version>2.10.0</net.sf.ehcache-version>
+		<validation-version>1.1.0.Final</validation-version>
+		<jackson-version>2.7.1</jackson-version>
+		<commons-dbcp-version>1.4</commons-dbcp-version>
+		<dozer-version>5.5.1</dozer-version>
+		
+		<h2-version>1.4.191</h2-version>
+		<postgresql-version>9.4-1200-jdbc41</postgresql-version>
+		
+		<sl4j.version>2.5</sl4j.version>
+		<servlet-api.version>2.5</servlet-api.version>
 	</properties>
 </project>

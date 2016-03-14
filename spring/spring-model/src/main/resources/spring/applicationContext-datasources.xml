@@ -11,9 +11,9 @@
 
 	<bean id="formationDatasource"
 		class="org.apache.commons.dbcp.BasicDataSource" scope="singleton">
-		<property name="driverClassName" value="org.h2.Driver" />
-		<property name="url" value="jdbc:h2:~/formation" />
-		<property name="username" value="sa" />
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/formation" />
+		<property name="username" value="postgres" />
 		<property name="password" value="" />
 	</bean>
 </beans>

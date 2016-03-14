@@ -11,7 +11,7 @@ import org.junit.runners.Suite.SuiteClasses;
  *
  */
 @RunWith(Suite.class)
-@SuiteClasses({ FunnyGuyTest.class, PartyTest.class })
+@SuiteClasses({ FunnyGuyTest.class, PartyTest.class, PartyLauncherTest.class, ExceptionTest.class })
 public class AllTests {
 
 }

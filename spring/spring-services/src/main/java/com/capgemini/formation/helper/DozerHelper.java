@@ -6,6 +6,12 @@ import java.util.List;
 
 import org.dozer.Mapper;
 
+/**
+ * Helper for collections mapping
+ * 
+ * @author fbontemp
+ *
+ */
 public class DozerHelper implements Serializable {
 
     /**
@@ -17,6 +23,15 @@ public class DozerHelper implements Serializable {
         super();
     }
 
+    /**
+     * @param mapper
+     *            dozer mapper object
+     * @param source
+     *            source collection
+     * @param destType
+     *            Type of destination
+     * @return destination collection
+     */
     public static <T, U> List<U> map(final Mapper mapper, final List<T> source, final Class<U> destType) {
 
         final List<U> dest = new ArrayList<>();
