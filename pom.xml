@@ -50,6 +50,7 @@
 		<module>exceptions</module>
 		<module>unittesting</module>
 		<module>spring</module>
+		<module>hugeDAO</module>
 	</modules>
 
 	<properties>
