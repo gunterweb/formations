@@ -20,17 +20,16 @@
 	>
 	
 	<!-- import Interne de la ressource datasource -->
-	<import resource="classpath:spring/applicationContext-datasources.xml" />
+	<import resource="classpath:spring/applicationContextTest-datasources.xml" />
 	
 	<!-- Traitement des annotations -->
 	<context:component-scan base-package="com.capgemini.formation.model" />
-	<jpa:repositories base-package="com.capgemini.formation.dao"/>
+	<jpa:repositories base-package="com.capgemini.formation.dao"></jpa:repositories>
 		
 	<bean id="jpaVendorAdapter"
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="generateDdl" value="true" />
-		<property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect"/>
-		<property name="database" value="POSTGRESQL" />
+		<property name="database" value="H2" />
 		<property name="showSql" value="true" />
 	</bean>
 	

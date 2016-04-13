@@ -17,6 +17,7 @@
 		<module>spring-web</module>
 		<module>spring-app</module>
 	</modules>
+
 	<dependencyManagement>
 		<dependencies>
 			<!-- Project modules -->
@@ -80,6 +81,12 @@
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
 				<version>${spring-data.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.restdocs</groupId>
+				<artifactId>spring-restdocs-mockmvc</artifactId>
+				<version>${spring-restdocs.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<!-- Hibernate -->
 			<dependency>
@@ -165,7 +172,7 @@
 			<!-- Servlet API -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
-				<artifactId>servlet-api</artifactId>
+				<artifactId>javax.servlet-api</artifactId>
 				<scope>provided</scope>
 				<version>${servlet-api.version}</version>
 			</dependency>
@@ -174,17 +181,20 @@
 	<properties>
 		<org.springframework-version>4.2.5.RELEASE</org.springframework-version>
 		<spring-data.version>1.9.4.RELEASE</spring-data.version>
+		<spring-restdocs.version>1.0.1.RELEASE</spring-restdocs.version>
 		<hibernate-version>5.1.0.Final</hibernate-version>
 		<net.sf.ehcache-version>2.10.0</net.sf.ehcache-version>
 		<validation-version>1.1.0.Final</validation-version>
 		<jackson-version>2.7.1</jackson-version>
 		<commons-dbcp-version>1.4</commons-dbcp-version>
 		<dozer-version>5.5.1</dozer-version>
-		
+
 		<h2-version>1.4.191</h2-version>
 		<postgresql-version>9.4-1200-jdbc41</postgresql-version>
-		
+
 		<sl4j.version>2.5</sl4j.version>
-		<servlet-api.version>2.5</servlet-api.version>
+		<servlet-api.version>3.0.1</servlet-api.version>
+
+		<snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
 	</properties>
 </project>

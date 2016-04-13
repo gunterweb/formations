@@ -41,7 +41,7 @@ public class CustomerServiceTest {
         customerService.saveCustomer(dto);
         Assert.assertEquals(customerService.getCustomers().size(), 1);
     }
-    
+
     @Test
     public void testDeleteDto() {
         Assert.assertEquals(customerService.getCustomers().size(), 0);

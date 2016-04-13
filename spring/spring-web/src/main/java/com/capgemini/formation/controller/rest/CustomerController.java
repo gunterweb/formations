@@ -134,6 +134,8 @@ public class CustomerController {
      * @param id
      *            customer Id
      * @return ResponseEntity
+     * @throws CustomerNotFoundException
+     *             CustomerNotFoundException
      */
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<CustomerDto> deleteCustomer(@PathVariable("id") @NotNull Long id)

@@ -90,6 +90,7 @@
 		<version.maven-deploy-plugin>2.8.1</version.maven-deploy-plugin>
 		<version.maven-release-plugin>2.5</version.maven-release-plugin>
 		<version.maven-site-plugin>3.4</version.maven-site-plugin>
+		<asciidoctor-maven-plugin.version>1.5.2</asciidoctor-maven-plugin.version>
 
 		<!-- dependencies -->
 		<junit.version>4.12</junit.version>
@@ -180,12 +181,12 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${version.maven-surefire-plugin}</version>
 					<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-junit47</artifactId>
-						<version>${version.maven-surefire-plugin}</version>
-					</dependency>
-				</dependencies>
+						<dependency>
+							<groupId>org.apache.maven.surefire</groupId>
+							<artifactId>surefire-junit47</artifactId>
+							<version>${version.maven-surefire-plugin}</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 
 				<plugin>
@@ -304,6 +305,12 @@
 					<version>${version.properties-maven-plugin}</version>
 				</plugin>
 
+				<plugin>
+					<groupId>org.asciidoctor</groupId>
+					<artifactId>asciidoctor-maven-plugin</artifactId>
+					<version>${asciidoctor-maven-plugin.version}</version>
+				</plugin>	
+
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -329,7 +336,7 @@
 					<argLine>${surefireArgLine}</argLine>
 					<parallel>classes</parallel>
 					<threadCount>1</threadCount>
-				</configuration>				
+				</configuration>
 			</plugin>
 
 			<!-- Failsafe plugin (TI) -->
