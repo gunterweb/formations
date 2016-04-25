@@ -51,6 +51,7 @@
 		<module>unittesting</module>
 		<module>spring</module>
 		<module>hugeDAO</module>
+		<module>tests</module>
 	</modules>
 
 	<properties>
