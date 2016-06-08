@@ -39,11 +39,11 @@
 			<name>Local - releases</name>
 			<url>http://localhost:8083/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
-		<site>
-			<id>formation_sonar_site</id>
-			<name>Formation Site Server</name>
-			<url>ftp://xxxx</url>
-		</site>
+<!-- 		<site> -->
+<!-- 			<id>formation_sonar_site</id> -->
+<!-- 			<name>Formation Site Server</name> -->
+<!-- 			<url>ftp://xxxx</url> -->
+<!-- 		</site> -->
 	</distributionManagement>
 	<modules>
 		<module>exceptions</module>
