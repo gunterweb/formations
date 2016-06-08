@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.capgemini.formation</groupId>
 		<artifactId>spring-parent</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>spring-app</artifactId>
 	<name>spring app</name>
