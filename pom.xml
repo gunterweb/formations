@@ -24,8 +24,8 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com/gunterweb/formations.git</connection>
-		<developerConnection>scm:git:git@github.com/gunterweb/formations.git</developerConnection>
+		<connection>scm:git:https://github.com/gunterweb/formations.git</connection>
+		<developerConnection>scm:git:https://github.com/gunterweb/formations.git</developerConnection>
 		<url>https://github.com/gunterweb/formations.git</url>
 		<tag>master</tag>
 	</scm>
