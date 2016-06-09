@@ -13,7 +13,7 @@
 		<module>spring-model</module>
 		<module>spring-services</module>
 		<module>spring-web</module>
-		<module>spring-app</module>
+		<!-- <module>spring-app</module>  -->
 	</modules>
 
 	<dependencyManagement>
