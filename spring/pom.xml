@@ -14,6 +14,7 @@
 		<module>spring-services</module>
 		<module>spring-web</module>
 		<!-- <module>spring-app</module>  -->
+		<module>spring-ear</module>
 	</modules>
 
 	<dependencyManagement>
@@ -28,6 +29,12 @@
 				<groupId>com.capgemini.formation</groupId>
 				<artifactId>spring-services</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.capgemini.formation</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
 			</dependency>
 			<!-- Spring -->
 			<dependency>
