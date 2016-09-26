@@ -32,12 +32,12 @@
 		<repository>
 			<id>localNexus</id>
 			<name>Local - releases</name>
-			<url>http://localhost:8083/nexus/content/repositories/releases/</url>
+			<url>http://localhost:8083/repository/maven-releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>localNexus</id>
 			<name>Local - releases</name>
-			<url>http://localhost:8083/nexus/content/repositories/snapshots/</url>
+			<url>http://localhost:8083/repository/maven-snapshots/</url>
 		</snapshotRepository>
 <!-- 		<site> -->
 <!-- 			<id>formation_sonar_site</id> -->
@@ -68,7 +68,7 @@
 		<version.maven-dependency-plugin>2.8</version.maven-dependency-plugin>
 		<version.versions-maven-plugin>2.1</version.versions-maven-plugin>
 		<version.jacoco-maven-plugin>0.7.4.201502262128</version.jacoco-maven-plugin>
-		<version.sonar-maven-plugin>2.5</version.sonar-maven-plugin>
+		<version.sonar-maven-plugin>3.0.2</version.sonar-maven-plugin>
 		<version.iterator-maven-plugin>0.3</version.iterator-maven-plugin>
 		<version.properties-maven-plugin>1.0-alpha-2</version.properties-maven-plugin>
 		<version.maven-eclipse-plugin>2.9</version.maven-eclipse-plugin>
